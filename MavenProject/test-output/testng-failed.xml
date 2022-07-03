@@ -5,7 +5,7 @@
     <classes>
       <class name="com.salesforce.CreateOpty">
         <methods>
-          <include name="tc15"/>
+          <include name="tc17"/>
           <include name="tearDown"/>
           <include name="login"/>
         </methods>

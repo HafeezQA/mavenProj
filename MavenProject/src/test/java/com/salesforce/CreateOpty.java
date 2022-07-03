@@ -22,7 +22,7 @@ public class CreateOpty {
 	   //Launch and Login 	
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
-		//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.manage().window().maximize();
 		driver.get("https://login.salesforce.com/");
 		WebElement username = driver.findElement(By.id("username"));
@@ -32,7 +32,7 @@ public class CreateOpty {
 		WebElement login =driver.findElement(By.id("Login"));
 		login.click();   
 }
-	@Test(priority=1)
+	@Test()
 	public void tc15() throws InterruptedException
 	{
 		//Click on opportunities link
@@ -43,7 +43,7 @@ public class CreateOpty {
 		driver.findElement(By.id("fcf")).click();
 		allOpportunities.click();	
 }
-	@Test(priority=2)
+	@Test()
 	public void tc16() throws InterruptedException
 	{
 		//Launch and Login 
@@ -71,14 +71,28 @@ public class CreateOpty {
 			
 		}
 	}
-		@AfterMethod
-		public void tearDown()
+		
+		@Test()
+		public void tc17() throws InterruptedException
 		{
-			driver.quit();
-			
-		}
-			
+			//Launch and Login 
+			WebDriverManager.chromedriver().setup();
+			driver = new ChromeDriver();
+			//Click on opportunities link
+			WebElement opportunities =driver.findElement(By.xpath("//a[normalize-space()='Opportunities']"));
+			opportunities.click();
+			//All opportunities link
+			Thread.sleep(5000);
+			WebElement allOpportunities = driver.findElement(By.xpath("(//select[@id='fcf'])[1]"));
+			driver.findElement(By.id("fcf")).click();
+			allOpportunities.click();				
 }
 
+@AfterMethod
+public void tearDown()
+{
+	//driver.quit();
 
+}
+}
 
