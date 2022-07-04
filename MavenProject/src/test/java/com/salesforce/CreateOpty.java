@@ -46,9 +46,6 @@ public class CreateOpty {
 	@Test()
 	public void tc16() throws InterruptedException
 	{
-		//Launch and Login 
-		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
 		//Click on opportunities link
 		WebElement opportunities =driver.findElement(By.xpath("//a[normalize-space()='Opportunities']"));
 		opportunities.click();
@@ -75,9 +72,6 @@ public class CreateOpty {
 		@Test()
 		public void tc17() throws InterruptedException
 		{
-			//Launch and Login 
-			WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver();
 			//Click on opportunities link
 			WebElement opportunities =driver.findElement(By.xpath("//a[normalize-space()='Opportunities']"));
 			opportunities.click();
@@ -87,11 +81,30 @@ public class CreateOpty {
 			driver.findElement(By.id("fcf")).click();
 			allOpportunities.click();				
 }
-
-@AfterMethod
-public void tearDown()
+		@Test()
+		public void tc18() throws InterruptedException
+		{
+			//Click on opportunities link
+			WebElement opportunities =driver.findElement(By.xpath("//a[normalize-space()='Opportunities']"));
+			opportunities.click();
+			//Click on Stuck Opportunities link  
+           driver.findElement(By.xpath("//a[normalize-space()='Stuck Opportunities']")).click();
+           
+		}
+		@Test()
+		public void tc19() {
+		//Click on opportunities link
+		WebElement opportunities =driver.findElement(By.xpath("//a[normalize-space()='Opportunities']"));
+		opportunities.click();
+		//Click on Quarterly Summary link  
+        driver.findElement(By.id("quarter_q")).click();
+        		
+}
+		
+        @AfterMethod
+        public void tearDown()
 {
-	//driver.quit();
+	    driver.quit();
 
 }
 }
